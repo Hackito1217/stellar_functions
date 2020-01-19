@@ -1,0 +1,2 @@
+# stellar_functions
+社内学習用に作ったSAMとDynamoDB Localを使ったコード
