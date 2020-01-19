@@ -1,0 +1,13 @@
+{
+  "name": "change_trust",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.605.0",
+    "stellar-sdk": "^3.3.0"
+  }
+}

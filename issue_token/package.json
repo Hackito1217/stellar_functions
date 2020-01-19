@@ -1,0 +1,13 @@
+{
+  "name": "issue_token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.606.0",
+    "stellar-sdk": "^3.3.0"
+  }
+}

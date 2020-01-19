@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Functions about custom token issue on Stellar blockchain
+Globals:
+  Function:
+    Timeout: 30
+
+Resources:
+  CreateAccountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: create_account/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Events:
+        create:
+          Type: Api
+          Properties:
+            Path: /create_account
+            Method: post
+
+  ChangeTrustFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: change_trust/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Events:
+        Trustline:
+          Type: Api
+          Properties:
+            Path: /change_trust
+            Method: post
+
+  IssueFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: issue_token/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Events:
+        IssueToken:
+          Type: Api
+          Properties:
+            Path: /issue_token
+            Method: post
