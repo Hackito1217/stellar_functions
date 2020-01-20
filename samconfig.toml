@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "Stellar-Func"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1s4hvefju3es3"
+s3_prefix = "Stellar-Func"
+region = "ap-northeast-1"
+capabilities = "CAPABILITY_IAM"
+

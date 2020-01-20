@@ -1,5 +1,5 @@
 {
-  "body": "{\"distributor\":2,\"coin\":\"BitMoney\"}",
+  "body": "{\"distributor\":1,\"coin\":\"BitMoney\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",

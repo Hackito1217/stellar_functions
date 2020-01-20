@@ -1,5 +1,5 @@
 {
-  "body": "{\"id\":2,\"coin\":\"BitMoney\"}",
+  "body": "{\"id\":1,\"coin\":\"JensToken\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",

@@ -51,6 +51,41 @@ exports.handler = (event, context, callback) => {
             console.log(JSON.stringify(transactionResult, null, 2));
             console.log('\nSuccess! View the transaction at: ');
             console.log(transactionResult._links.transaction.href);
+            const p1 = {
+              TableName: 'seq',
+              Key: {id: 0}
+            }
+            ddb.get(p1, (err, data) => {
+              const id2 = data.Item.service_token + 1
+              const date = new Date()
+              const date_s = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()} ${date.getUTCHours() + 9}:${date.getUTCMinutes()}`
+
+              const p2 = {
+                TableName: 'service_token',
+                Item: {
+                  id: id2,
+                  tokenName: args.coin,
+                  created: date_s
+                }
+              }
+              ddb.put(p2, (err, data) => {
+                if (err) console.log(err)
+                else {
+                  console.log('create coin successfully!!')
+                  const p3 = {
+                    TableName: 'seq',
+                    Key: {id: 0},
+                    ExpressionAttributeNames: {'#s': 'service_token'},
+                    ExpressionAttributeValues: {':id': id2},
+                    UpdateExpression: 'set #s = :id'
+                  }
+                  ddb.update(p3, (err, data) => {
+                    if(err) console.log(err)
+                    else console.log(data)
+                  })
+                }
+              })
+            })
           } catch (e) {
             console.log('An error has occured:');
             console.log(e);
